@@ -4,16 +4,17 @@
 #include <dbus-c++/dbus.h>
 #include "ip_xmpp_voice_proxy.h"
 
-struct VoiceInterface
-: public com::bus::xmpp_proxy,
-  public DBus::IntrospectableProxy,
-  public DBus::ObjectProxy
+struct VoiceInterface : public com::bus::xmpp_proxy,
+    public DBus::IntrospectableProxy,
+    public DBus::ObjectProxy
 {
-// public:
+    VoiceInterface(DBus::Connection &connection, const char *path, const char *name)
+    : DBus::ObjectProxy(connection, path, name) { }
 
-	VoiceInterface(DBus::Connection &connection, const char *path, const char *name);
-
-	void voiceAction(const std::string& voiceKey);
+    void voiceAction(const std::string& voiceKey)
+    {
+        ((xmpp_proxy*)this)->voiceAction(voiceKey);
+    }
 };
 
 #endif

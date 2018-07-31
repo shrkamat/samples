@@ -11,7 +11,7 @@ int main( void )
 
     IVoiceHndl hndl = dbus_create_voice_interface("/com/bus/xmpp", "com.bus.xmpp");
 
-    dbus_voice_action(hndl, voiceKey);
+    dbus_send_voice_action(hndl, voiceKey);
 
     dbus_delete_voice_interface(hndl);
 

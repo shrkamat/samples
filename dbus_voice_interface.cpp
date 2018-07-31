@@ -9,14 +9,14 @@ IVoiceHndl dbus_create_voice_interface(const char *path, const char *name)
 	return new VoiceInterface(bus, path, name);
 }
 
-void dbus_voice_action(IVoiceHndl hndl, const char *voiceKey)
+void dbus_send_voice_action(IVoiceHndl hndl, const char *voiceKey)
 {
 	hndl->voiceAction(voiceKey);
 }
 
 bool dbus_is_voice_interface_valid(IVoiceHndl hndl)
 {
-	// TODO IMPL
+	// how can I check if interface is valid ?
 	return true;
 }
 

@@ -17,5 +17,4 @@ HEADERS += ip_xmpp_voice_proxy.h \
            voice_interface.h \
 	   dbus_voice_interface.h
 SOURCES += main.c \
-           voice_interface.cpp \
 	   dbus_voice_interface.cpp
