@@ -1,0 +1,1 @@
+dbusxx-xml2cpp com.bus.xmpp.xml --proxy=ip_xmpp_voice_proxy.h
