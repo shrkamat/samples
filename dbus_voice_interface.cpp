@@ -2,8 +2,13 @@
 #include "voice_interface.h"
 #include "dbus_voice_interface.h"
 
+
 IVoiceHndl dbus_create_voice_interface(const char *path, const char *name)
 {
+	if (!DBus::default_dispatcher) {
+		DBus::default_dispatcher = new DBus::BusDispatcher;
+	}
+
 	DBus::Connection bus = DBus::Connection::SessionBus();
 
 	return new VoiceInterface(bus, path, name);
